@@ -23,14 +23,17 @@ Comparar taxas de sucesso de pacotes em redes Wi-Fi 802.11 com diferentes potên
 omnet-to-ns3-port/
 ├── src/
 │   └── tdeo-omnet-port.cc          # Simulação NS-3 principal
+├── scripts/
+│   └── run-simulations.sh          # Script de execução principal
 ├── results/
 │   ├── csv/                        # Resultados em CSV
-│   └── comparison_visualization.png # Gráficos comparativos
-├── scripts/
-│   └── run-simulations.sh          # Script de execução
+│   ├── plots/                      # Gráficos gerados
+│   └── logs/                       # Logs de execução
 ├── docs/
-│   └── technical-report.md         # Relatório técnico
+│   ├── technical-report.md         # Relatório técnico
+│   └── porting-guide.md            # Guia de portação
 ├── compare-results.py              # Script de comparação
+├── INSTALL.md                      # Guia de instalação
 └── README.md                       # Este arquivo
 ```
 
@@ -42,10 +45,17 @@ omnet-to-ns3-port/
 - **Python 3.8+** com matplotlib e pandas
 - **OMNeT++ 6.0** (opcional, para comparação)
 
-### **1. Compilar NS-3**
+### **1. Instalação**
 
 ```bash
+# Clonar repositório
+git clone https://github.com/seu-usuario/omnet-to-ns3-port.git
 cd omnet-to-ns3-port
+
+# Instalar dependências Python
+pip3 install matplotlib pandas numpy
+
+# Configurar NS-3 (ver INSTALL.md para detalhes)
 ./waf configure
 ./waf build
 ```
@@ -57,10 +67,10 @@ cd omnet-to-ns3-port
 ./scripts/run-simulations.sh
 
 # Ou executar individualmente
-./ns3 run src/tdeo-omnet-port -- --txPower=2 --simTime=60
-./ns3 run src/tdeo-omnet-port -- --txPower=5 --simTime=60
-./ns3 run src/tdeo-omnet-port -- --txPower=10 --simTime=60
-./ns3 run src/tdeo-omnet-port -- --txPower=15 --simTime=60
+./scripts/run-simulations.sh --power 5
+
+# Ver ajuda
+./scripts/run-simulations.sh --help
 ```
 
 ### **3. Comparar Resultados**
@@ -77,12 +87,13 @@ python3 compare-results.py
 - **Latência**: Tempo médio de entrega
 - **Throughput**: Taxa de transferência efetiva
 
-### **Visualizações**
+### **Visualizações Geradas**
 
 O script `compare-results.py` gera:
 - Gráficos de barras comparativos
 - Análise de correlação
 - Relatório de diferenças percentuais
+- Relatório em Markdown
 
 ## 🔧 Configurações Técnicas
 
@@ -100,12 +111,61 @@ O script `compare-results.py` gera:
 - **Tamanho**: 64 bytes por pacote
 - **Potências**: 2mW, 5mW, 10mW, 15mW
 
-## 📝 Relatório Técnico
+## 📝 Documentação
 
-Consulte `docs/technical-report.md` para:
-- Metodologia detalhada
-- Análise de resultados
-- Conclusões e recomendações
+- **`INSTALL.md`**: Guia completo de instalação
+- **`docs/technical-report.md`**: Relatório técnico detalhado
+- **`docs/porting-guide.md`**: Guia de portação OMNeT++ → NS-3
+
+## 🧪 Testes
+
+### **Execução Rápida**
+
+```bash
+# Teste com uma potência
+./scripts/run-simulations.sh --power 10 --time 60
+
+# Verificar resultados
+ls -la results/csv/
+python3 compare-results.py
+```
+
+### **Execução Completa**
+
+```bash
+# Todas as potências (600s cada)
+./scripts/run-simulations.sh
+
+# Verificar logs
+tail -f results/logs/simulation_*.log
+```
+
+## 📊 Resultados
+
+Os resultados são salvos em:
+- **`results/csv/tdeo-simulated-omnet.csv`**: Dados brutos
+- **`results/plots/comparison_visualization.png`**: Gráficos
+- **`results/comparison-report.md`**: Relatório detalhado
+- **`results/comparison_summary.csv`**: Resumo estatístico
+
+## 🔍 Troubleshooting
+
+### **Problemas Comuns**
+
+1. **NS-3 não compila**: Verificar dependências em `INSTALL.md`
+2. **Erro de permissão**: `chmod +x scripts/run-simulations.sh`
+3. **Python não encontrado**: Instalar Python 3.8+
+4. **Dependências faltando**: `pip3 install matplotlib pandas numpy`
+
+### **Logs de Debug**
+
+```bash
+# Habilitar logs detalhados
+export NS_LOG="TDEO=level_all"
+
+# Executar com logs
+./ns3 run "src/tdeo-omnet-port --txPower=5"
+```
 
 ## 👥 Autores
 
@@ -115,7 +175,7 @@ Consulte `docs/technical-report.md` para:
 
 ## 📞 Contato
 
-- **Email**: [seu-email@ufsc.br]
+- **Email**: [lipe.fagundespacheco@gmail.com]
 - **Projeto**: TDEO/GAIA-DRL
 - **Instituição**: UFSC
 
@@ -126,4 +186,6 @@ Licença acadêmica - uso restrito para pesquisa e fins educacionais.
 
 ---
 
-**Status**: ✅ **FUNCIONANDO E PRONTO PARA USO**
+**Status**: ✅ **FUNCIONANDO E PRONTO PARA USO**  
+**Versão**: 2.0 (Limpa e Organizada)  
+**Última Atualização**: Dezembro 2024

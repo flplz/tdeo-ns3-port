@@ -2,8 +2,7 @@
 
 # =============================================================================
 # TDEO/GAIA-DRL - Script de Execução de Simulações NS-3
-# Autor: Edwardes Galhardo (IFTO)
-# Data: 15/08/2024
+# Portação OMNeT++ para NS-3
 # =============================================================================
 
 set -e  # Parar em caso de erro
@@ -149,24 +148,29 @@ show_summary() {
     echo "=================================================================="
 }
 
+# Função para mostrar ajuda
+show_help() {
+    echo "Uso: $0 [OPÇÃO]"
+    echo
+    echo "Opções:"
+    echo "  --help, -h     Mostrar esta ajuda"
+    echo "  --power N      Executar apenas potência N mW"
+    echo "  --time N       Definir tempo de simulação (padrão: 600s)"
+    echo "  --all          Executar todas as potências (padrão)"
+    echo
+    echo "Exemplos:"
+    echo "  $0 --all                    # Executar todas as potências"
+    echo "  $0 --power 5                # Executar apenas 5mW"
+    echo "  $0 --power 10 --time 300    # Executar 10mW por 300s"
+}
+
 # Função principal
 main() {
     show_banner
     
     # Verificar argumentos
     if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-        echo "Uso: $0 [OPÇÃO]"
-        echo
-        echo "Opções:"
-        echo "  --help, -h     Mostrar esta ajuda"
-        echo "  --power N      Executar apenas potência N mW"
-        echo "  --time N       Definir tempo de simulação (padrão: 600s)"
-        echo "  --all          Executar todas as potências (padrão)"
-        echo
-        echo "Exemplos:"
-        echo "  $0 --all                    # Executar todas as potências"
-        echo "  $0 --power 5                # Executar apenas 5mW"
-        echo "  $0 --power 10 --time 300    # Executar 10mW por 300s"
+        show_help
         exit 0
     fi
     
