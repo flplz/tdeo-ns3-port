@@ -7,13 +7,18 @@ build/
 *.pyc
 __pycache__/
 
-# Results and logs
+# Results and logs (manter apenas arquivos principais)
 results/logs/
 results/plots/
 *.log
-*.csv
-*.png
 *.pdf
+
+# Manter apenas o arquivo CSV principal
+results/csv/*.csv
+!results/csv/tdeo-simulated-omnet.csv
+
+# Manter visualização da comparação
+!results/comparison_visualization.png
 
 # IDE files
 .vscode/
@@ -48,3 +53,8 @@ ENV/
 *.xml
 *.vec
 *.sca
+
+# Backup files
+*.backup
+*.old
+*.orig
