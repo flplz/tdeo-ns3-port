@@ -110,12 +110,11 @@ Consulte `docs/technical-report.md` para:
 ## 👥 Autores
 
 - **Felipe** - Bolsista UFSC
-- **Orientador**: [Nome do Orientador]
 - **Instituição**: Universidade Federal de Santa Catarina (UFSC)
 
 ## 📞 Contato
 
-- **Email**: [seu-email@ufsc.br]
+- **Email**: [lipe.fagundespacheco@gmail.com]
 - **Projeto**: TDEO/GAIA-DRL
 - **Instituição**: UFSC
 
