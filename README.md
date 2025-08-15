@@ -170,7 +170,6 @@ export NS_LOG="TDEO=level_all"
 ## 👥 Autores
 
 - **Felipe** - Bolsista UFSC
-- **Orientador**: [Nome do Orientador]
 - **Instituição**: Universidade Federal de Santa Catarina (UFSC)
 
 ## 📞 Contato
