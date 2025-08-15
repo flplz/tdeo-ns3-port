@@ -109,17 +109,20 @@ Consulte `docs/technical-report.md` para:
 
 ## 👥 Autores
 
-- **Edwardes Galhardo** - IFTO
+- **Felipe** - Bolsista UFSC
 - **Orientador**: [Nome do Orientador]
+- **Instituição**: Universidade Federal de Santa Catarina (UFSC)
 
 ## 📞 Contato
 
-- **Email**: edwardes.galhardo@ifto.edu.br
+- **Email**: [seu-email@ufsc.br]
 - **Projeto**: TDEO/GAIA-DRL
+- **Instituição**: UFSC
 
 ## 📄 Licença
 
-Este projeto é parte da pesquisa TDEO/GAIA-DRL desenvolvida no IFTO.
+Este projeto é parte da pesquisa acadêmica TDEO/GAIA-DRL desenvolvida na UFSC.
+Licença acadêmica - uso restrito para pesquisa e fins educacionais.
 
 ---
 
