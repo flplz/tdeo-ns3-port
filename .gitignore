@@ -1,0 +1,50 @@
+# NS-3 build files
+build/
+*.o
+*.so
+*.a
+*.d
+*.pyc
+__pycache__/
+
+# Results and logs
+results/logs/
+results/plots/
+*.log
+*.csv
+*.png
+*.pdf
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+
+# NS-3 specific
+*.pcap
+*.tr
+*.nam
+*.xml
+*.vec
+*.sca
