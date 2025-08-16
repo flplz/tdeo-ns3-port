@@ -169,7 +169,7 @@ export NS_LOG="TDEO=level_all"
 
 ## 👥 Autores
 
-- **Felipe** - Bolsista UFSC
+- **Felipe Pacheco** - Bolsista UFSC
 - **Instituição**: Universidade Federal de Santa Catarina (UFSC)
 
 ## 📞 Contato
