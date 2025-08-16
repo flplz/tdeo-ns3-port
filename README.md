@@ -187,4 +187,4 @@ Licença acadêmica - uso restrito para pesquisa e fins educacionais.
 
 **Status**: ✅ **FUNCIONANDO E PRONTO PARA USO**  
 **Versão**: 2.0 (Limpa e Organizada)  
-**Última Atualização**: Dezembro 2024
+**Última Atualização**: Agosto 2025
